@@ -1,0 +1,239 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+}
+
+.image-container{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.image-container img{
+    position: relative;
+    width: 17rem;
+    height: 17rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    transition: 0.5s;
+    opacity: 0.7;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;   
+}
+
+.image-container img:hover{
+    opacity: 1;
+    transform: scale(1.1) rotate(3deg);
+}
+
+.image-hover{
+    opacity: 1!important;
+    transform: scale(1.1) rotate(3deg);
+}
+
+.view-image{
+    position: fixed;
+    z-index: 6;
+    height: 100%;
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background:rgb(0, 0, 0,0.9);
+    top: 0;
+}
+
+.objectFit > img{
+    width: 75%;
+    border-radius: 2rem;
+    max-width: 400px;
+}
+
+.belinal-description{
+    color:white;
+    font-size: 2rem;
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+    .view-image img{
+        height: unset;
+        width: 90%;
+        margin: auto;
+    }
+    .belinal-description > div {
+        margin-bottom: 1em;
+        margin-top: 1em;
+        margin-left: 1em;
+    }
+}
+
+#viewImageCloseBtn{
+    color:white;
+    font-size: 4rem;
+    position: absolute;
+    top:2rem;
+    right: 8rem;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    #viewImageCloseBtn{
+       right: 1.5rem;
+    }
+}
+
+#parent-image-container{
+    z-index: 4;
+    position: relative;
+}
+
+
+#welcome-text{
+    font-size: 2em;
+    display: inline-block;
+}
+
+.content-right{
+    display: block;
+    float: right;
+}
+
+.content-right > a {
+    display: inline-block;
+}
+
+#loader{
+    display: none;
+    z-index: 6;
+    color: #FFF;  
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    bottom: 0;
+}
+
+
+ /* Style the video: 100% width and height to cover the entire window */
+#background-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1;
+}
+
+/* Add some content at the bottom of the video/page */
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+  z-index: 5;
+}
+
+#navbar{
+    z-index: 5;
+    position: relative;
+    padding-right: 1em;
+    --tw-bg-opacity: 0.5;
+    background-color: var(--fallback-b3, oklch(var(--b3) / var(--tw-bg-opacity)));
+    font-size: 1.7em;
+    color: #FFF;
+}
+
+#header-logo{
+    display: inline-block;
+    margin-right: 0.5em;
+    vertical-align: super;
+    margin-left: 0.1em;
+    width: 3rem;
+    height: 3rem;    
+}
+
+.bg-slate-8002:hover{
+    background-color: var(--fallback-bc, oklch(var(--bc) / 0.1));
+}
+
+.color-white{
+    color: #FFF;
+}
+
+#header-description{
+    font-size: 0.5em;
+}
+
+#header-description > b {
+    color: rgb(253, 255, 186);
+}
+
+#header-block-title-description{
+    display: inline-block;
+    margin-top: 0.2em;
+}
+
+img, video{
+    max-width: unset;
+}
+
+.logo-menu-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.logo-menu{
+    width: 120px;
+}
+
+.hidde{
+    display: none;
+}
+
+#resume{
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: var(--fallback-b3,#b7a574);
+}
+
+#resume > h1{
+    font-size: 2em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.bg-base-200{
+    background-color: var(--fallback-b3,rgb(183, 165, 116));
+}
+
+.bg-base-300{
+    background-color: var(--fallback-b3,rgb(183, 165, 116));
+}
+
+#audio-button > svg{
+    width: 1em; 
+    height: 1em;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.fill-white{
+    fill: #FFF;
+}
+
+#audio-button{
+    margin-right: 1em;
+    cursor: pointer;
+}
