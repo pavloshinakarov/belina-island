@@ -15,6 +15,20 @@ body{
     text-align: center;
 }
 
+.img-box{
+    display: inline-grid;
+}
+
+.img-box-info{
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 1rem;
+    margin-top: 0.5em;
+    margin-left: auto;
+    width: 90%;
+    margin-right: auto;
+    color: #FFF;
+}
+
 .image-container img{
     position: relative;
     width: 17rem;
@@ -24,8 +38,9 @@ body{
     transition: 0.5s;
     opacity: 0.7;
     cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;   
+    margin-left: 1em;
+    margin-right: 1em;
+    display: inline-grid;
 }
 
 .image-container img:hover{

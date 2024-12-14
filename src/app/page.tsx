@@ -54,7 +54,7 @@ export default function Home() {
           }
         }
 
-        imageHoverScroll();
+        //imageHoverScroll();
       }
     };
 
@@ -239,10 +239,34 @@ export default function Home() {
       let img = document.createElement("img");
       img.src = url;
 
+      let imgBoxLink = document.createElement("a");
+      imgBoxLink.href = 'https://nintondo.io/belinals/' + id;
+      imgBoxLink.target = '_blank';
+
+      let imgBox = document.createElement("div");
+      imgBox.classList.add("img-box");
+      imgBox.appendChild(img);
+
+      let imgInfo = document.createElement("div");
+      imgInfo.classList.add("img-box-info");
+
+      let imgInfoDonation = document.createElement("div");
+      imgInfoDonation.innerHTML = (value / 100000000).toFixed(2).toString() + " bels";
+      imgInfo.appendChild(imgInfoDonation);
+
+      let imgInfoAddress = document.createElement("div");
+      const formattedString = `${id.slice(0, 4)}...${id.slice(-4)}`;
+      imgInfoAddress.innerHTML = formattedString;
+      imgInfo.appendChild(imgInfoAddress);
+
+      imgBox.appendChild(imgInfo);
+
       let imageContainer = document.querySelector(".image-container");
       if (imageContainer){
-        imageContainer.appendChild(img);
-        img.addEventListener("click",function(e){
+        imgBoxLink.appendChild(imgBox);
+        imageContainer.appendChild(imgBoxLink);
+
+        /*img.addEventListener("click",function(e){
           if (e.target){
             let viewImage = document.querySelector(".view-image");
             if (viewImage && viewImage instanceof HTMLElement){
@@ -265,7 +289,7 @@ export default function Home() {
               }
             }
           }
-        })
+        })*/
       }
   }
 
@@ -376,7 +400,7 @@ export default function Home() {
         addedBelinals.add(belinal.id);
         setAddedBelinals(addedBelinals);
         await getImage(belinal.id, value);
-        if (addedBelinals.size < 3){
+        if (addedBelinals.size < 12){
           await loadTx();
         }        
       }
