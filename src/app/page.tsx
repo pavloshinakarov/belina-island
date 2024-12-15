@@ -383,32 +383,36 @@ export default function Home() {
       loader.style.display = "flex";
     }
 
-    const response = await fetch("https://api.nintondo.io/api/tx/" + tx.txid);
-    const result = await response.json();
+    if (tx.txid){
+      const response = await fetch("https://api.nintondo.io/api/tx/" + tx.txid);
+      const result = await response.json();
 
 
-    let wallet = result.vin[result.vin.length-1].prevout.scriptpubkey_address;
-    let value = result.vin[result.vin.length-1].prevout.value;
-    //console.log("Wallet:" + wallet);
-    let belinal = await loadBelinal(result.vin[result.vin.length-1].prevout.scriptpubkey_address);
-    if (belinal){
-      //console.log("Belinal FOUND: " + belinal.id);
-      //console.log(belinal);
+      let wallet = result.vin[result.vin.length-1].prevout.scriptpubkey_address;
+      let value = result.vin[result.vin.length-1].prevout.value;
+      //console.log("Wallet:" + wallet);
+      let belinal = await loadBelinal(result.vin[result.vin.length-1].prevout.scriptpubkey_address);
+      if (belinal){
+        //console.log("Belinal FOUND: " + belinal.id);
+        //console.log(belinal);
 
-      if (addedBelinals.has(belinal.id)) {
-        await loadTx();
-      }else{
-        addedBelinals.add(belinal.id);
-        setAddedBelinals(addedBelinals);
-        await getImage(belinal.id, value);
-        if (addedBelinals.size < 12){
+        if (addedBelinals.has(belinal.id)) {
           await loadTx();
-        }        
-      }
+        }else{
+          addedBelinals.add(belinal.id);
+          setAddedBelinals(addedBelinals);
+          await getImage(belinal.id, value);
+          if (addedBelinals.size < 12){
+            await loadTx();
+          }        
+        }
 
+      }else{
+        //console.log("not");
+        await loadTx();        
+      }
     }else{
-      //console.log("not");
-      await loadTx();        
+      console.log("no more tx....");
     }
 
     if (loader){
