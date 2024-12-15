@@ -48,9 +48,10 @@ export default function Home() {
         if (clientHeight + scrollTop + 1 >= scrollHeight) {
           const container = document.querySelector(".image-container");
           if (container) {
-            const images = container.querySelectorAll("img");
-            const lastTx = images.length;        
             await loadTx();
+            await loadTx();
+            await loadTx();
+            await loadTx();                        
           }
         }
 
