@@ -45,13 +45,10 @@ export default function Home() {
       const target = e.target as Document;
       if (target) {
         let { clientHeight, scrollHeight, scrollTop } = target.documentElement;
-        if (clientHeight + scrollTop + 1 >= scrollHeight) {
+        if (clientHeight + scrollTop + 1 >= ((scrollHeight) * 75) / 100) {
           const container = document.querySelector(".image-container");
           if (container) {
-            await loadTx();
-            await loadTx();
-            await loadTx();
-            await loadTx();                        
+            await loadTx();                    
           }
         }
 
@@ -377,13 +374,16 @@ export default function Home() {
 
     calledTx.add(lastTx);
 
-    let tx = txs[lastTx];
-    let loader = document.getElementById("loader");
-    if (loader){
-      loader.style.display = "flex";
-    }
+    if (lastTx + 1 > txs.length){
+      //no more elements
+    }else{
 
-    if (tx.txid){
+      let tx = txs[lastTx];
+      let loader = document.getElementById("loader");
+      if (loader){
+        loader.style.display = "flex";
+      }
+
       const response = await fetch("https://api.nintondo.io/api/tx/" + tx.txid);
       const result = await response.json();
 
@@ -411,8 +411,6 @@ export default function Home() {
         //console.log("not");
         await loadTx();        
       }
-    }else{
-      console.log("no more tx....");
     }
 
     if (loader){
