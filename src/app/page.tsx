@@ -374,12 +374,14 @@ export default function Home() {
 
     calledTx.add(lastTx);
 
+    let loader = document.getElementById("loader");
+      
     if (lastTx + 1 > txs.length){
       //no more elements
     }else{
 
       let tx = txs[lastTx];
-      let loader = document.getElementById("loader");
+
       if (loader){
         loader.style.display = "flex";
       }
