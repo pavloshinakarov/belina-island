@@ -601,20 +601,24 @@ const AppEntyPoint = () => {
                       Send $BEL
                     </button>
                   </div>
+                  <div className="mt-3">
+                    You could make this transfer directly from any wallet, such as the one on nintondo.io
+                  </div>
                 </div>
                 
                 <div className="text-center mt-4 bg-base-300 rounded-lg m-5 p-4">
                   <div className="mb-3">Create a Belinal</div>
                   <div className="grid gap-y-2">
                     <div className="flex justify-between items-center">
-                      <div>Pending develop function in this site</div>
+                      <div>To create a belinal, we recommend using the inscriber tool from nintondo.io</div>
                     </div>
-                    <button
+                    <a
                       className="btn btn-secondary rounded"
-                      disabled onClick={openModal}
+                      href="https://nintondo.io/inscriber"
+                      target="_blank"
                     >
                       Inscribe Belinal
-                    </button>
+                    </a>
                     <dialog
                       id="previewNamespace"
                       className="modal"
