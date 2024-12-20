@@ -404,7 +404,7 @@ export default function Home() {
           addedBelinals.add(belinal.id);
           setAddedBelinals(addedBelinals);
           await getImage(belinal.id, value);
-          if (addedBelinals.size < 12){
+          if (addedBelinals.size < 18){
             await loadTx();
           }        
         }
